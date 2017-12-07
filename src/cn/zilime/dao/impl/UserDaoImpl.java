@@ -9,7 +9,7 @@ import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import cn.zilime.dao.UserDao;
 import cn.zilime.domain.User;
 
-public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
+public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 	
 	
 	
@@ -29,10 +29,6 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
 		
 	}
 
-	@Override
-	public void save(User u) {
-		getHibernateTemplate().save(u);
-	}
-
+	
 	
 }

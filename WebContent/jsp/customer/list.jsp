@@ -95,9 +95,10 @@
 												<TR
 													style="FONT-WEIGHT: bold; FONT-STYLE: normal; BACKGROUND-COLOR: #eeeeee; TEXT-DECORATION: none">
 													<TD>客户名称</TD>
+													<TD>客户行业</TD>
 													<TD>客户级别</TD>
 													<TD>客户来源</TD>
-													<TD>联系人</TD>
+													
 													<TD>电话</TD>
 													<TD>手机</TD>
 													<TD>操作</TD>
@@ -109,14 +110,15 @@
 														<s:property value="#cust.cust_name" />
 													</TD>
 													<TD>
+													<s:property value="#cust.cust_industry" />
+													</TD>
+													<TD>
 													<s:property value="#cust.cust_level" />
 													</TD>
 													<TD>
 													<s:property value="#cust.cust_source" />
 													</TD>
-													<TD>
-													<s:property value="#cust.cust_linkman" />
-													</TD>
+													
 													<TD>
 													<s:property value="#cust.cust_phone" />
 													</TD>
@@ -124,9 +126,9 @@
 													<s:property value="#cust.cust_mobile" />
 													</TD>
 													<TD>
-													<a href="${pageContext.request.contextPath }/customerServlet?method=edit&custId=${customer.cust_id}">修改</a>
+													<a href="${pageContext.request.contextPath }/CustomerAction_toEdit?cust_id=<s:property value="#cust.cust_id" />">修改</a>
 													&nbsp;&nbsp;
-													<a href="${pageContext.request.contextPath }/customerServlet?method=delete&custId=${customer.cust_id}">删除</a>
+													<a href="${pageContext.request.contextPath }/CustomerAction_delete?cust_id=<s:property value="#cust.cust_id" />">删除</a>
 													</TD>
 												</TR>
 												</s:iterator>

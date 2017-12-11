@@ -29,6 +29,29 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	public void setCustomerService(CustomerService customerService) {
 		this.customerService= customerService;
 	}
+	
+	
+	public String add() throws Exception{
+		customerService.save(customer);
+				
+		return "tolist";
+	}
+   
+	
+	public String delete() throws Exception {
+		
+		customerService.delete(customer);
+			
+			return "tolist";
+		}
+	
+	
+	public String toEdit() throws Exception {
+	Customer c=customerService.getByID(customer.getCust_id());
+	ActionContext.getContext().put("customer", c);	
+		
+		return "edit";
+	}
 
 
 	public String list() throws Exception {

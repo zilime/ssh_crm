@@ -31,4 +31,27 @@ private CustomerDao cd;
 		this.cd = cd;
 	}
 
+
+
+	@Override
+	public void save(Customer customer) {
+	cd.save(customer);
+	}
+
+
+
+	@Override
+	public Customer getByID(Long cust_id) {
+		 
+		return cd.getById(cust_id);
+	}
+
+
+
+	@Override
+	public void delete(Customer customer) {
+		cd.delete(customer.getCust_id());
+		
+	}
+
 }

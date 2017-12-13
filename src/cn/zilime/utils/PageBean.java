@@ -19,7 +19,7 @@ public class PageBean {
 		}
 		
 		if(this.pageSize==null){    //默认每页显示数量
-			this.pageSize=4;
+			this.pageSize=5;
 		}
 		
 		this.totalPage=(this.totalCount+this.pageSize-1)/this.pageSize;  //计算总页数

@@ -90,7 +90,10 @@
 		scope="prototype">
 		<property name="baseDictService" ref="baseDictService"></property>
 	</bean>
-
+<bean name="linkManAction" class="cn.zilime.web.action.LinkManAction"
+		scope="prototype">
+		<property name="linkManService" ref="linkManService"></property>
+	</bean>
 <!-- service配置 -->
 	<bean name="userService" class="cn.zilime.service.impl.UserServiceImpl">
 		<property name="ud" ref="userDao"></property>
@@ -101,7 +104,9 @@
 <bean name="baseDictService" class="cn.zilime.service.impl.BaseDictServiceImpl">
 		<property name="bdd" ref="baseDictDao"></property>
 	</bean>
-
+<bean name="linkManService" class="cn.zilime.service.impl.linkManServiceImpl">
+	<property name="lmd" ref="linkManDao"></property>
+	</bean>
 
 <!-- dao配置 -->
 	<bean name="userDao" class="cn.zilime.dao.impl.UserDaoImpl">
@@ -113,6 +118,8 @@
 <bean name="baseDictDao" class="cn.zilime.dao.impl.BaseDictDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
+<bean name="linkManDao" class="cn.zilime.dao.impl.LinkManDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 
 </beans>

@@ -12,6 +12,7 @@
 	rel=stylesheet>
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.4.4.min.js"></script>
 <SCRIPT language=javascript>
+
 	function changePage(pageNum){
 			//1 将页码的值放入对应表单隐藏域中
 				$("#currentPageInput").val(pageNum);
@@ -24,7 +25,17 @@
 			$("#pageSizeInput").val(pageSize);
 		//2 提交表单
 			$("#pageForm").submit();
+			
 	};
+	function selectCustomer(id,name){
+		var win=window.opener;
+		var doc=win.document;
+		doc.getElementById("cust_id").value=id;
+		doc.getElementById("cust_name").value=name;
+		window.close();
+		
+	}
+	
 </SCRIPT>
 
 <META content="MSHTML 6.00.2900.3492" name=GENERATOR>
@@ -70,6 +81,9 @@
 										<input type="hidden" name="currentPage" id="currentPageInput" value="<s:property value="#pageBean.currentPage" />" />
 										<!-- 隐藏域.每页显示条数 -->
 										<input type="hidden" name="pageSize" id="pageSizeInput"       value="<s:property value="#pageBean.pageSize" />" />
+										<input type="hidden" name="select" value="<s:property value="#parameters.select" />" />
+										
+										
 										<TABLE cellSpacing=0 cellPadding=2 border=0>
 											<TBODY>
 												<TR>
@@ -126,9 +140,17 @@
 													<s:property value="#cust.cust_mobile" />
 													</TD>
 													<TD>
+												
+													
+													<s:if test="#parameters.select[0]=='true'">
+													
+													<input type="button" value="选择" onclick=" selectCustomer(<s:property value="#cust.cust_id" />,'<s:property value="#cust.cust_name" />')" >
+													</s:if>
+													<s:else>
 													<a href="${pageContext.request.contextPath }/CustomerAction_toEdit?cust_id=<s:property value="#cust.cust_id" />">修改</a>
 													&nbsp;&nbsp;
 													<a href="${pageContext.request.contextPath }/CustomerAction_delete?cust_id=<s:property value="#cust.cust_id" />">删除</a>
+													</s:else>
 													</TD>
 												</TR>
 												</s:iterator>

@@ -20,7 +20,7 @@ public class UserAction extends ActionSupport implements ModelDriven<User>{
 
 	public String login() throws Exception {
 		User u = userService.getUserByCodePassword(user);
-		ActionContext.getContext().getSession().put("user", u);
+		ActionContext.getContext().getSession().put("user",u);
 		
 	
 		return "toHome";

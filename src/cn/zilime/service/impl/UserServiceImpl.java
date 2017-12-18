@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService{
 		if(!existU.getUser_password().equals(u.getUser_password())){
 			throw new RuntimeException("ÃÜÂë´íÎó");
 		}	
-		return null;
+		return existU;
 	}
 
 	@Override

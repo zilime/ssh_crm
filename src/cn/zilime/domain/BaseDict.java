@@ -14,7 +14,7 @@ public class BaseDict {
 	  PRIMARY KEY (`dict_id`)
 	) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 	 */
-private String dict_id ;	
+private String dict_id;	
 private String dict_type_code;	
 private String dict_type_name;	
 private String dict_item_name;	

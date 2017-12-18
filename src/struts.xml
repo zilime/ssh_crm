@@ -4,6 +4,7 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 	
 	<struts>
+	
 
 <!--  由spring创建action  -->
 <constant name="struts.objectFactory " value="spring"></constant>
@@ -13,7 +14,26 @@
 
 
 	<package name="crm" namespace="/" extends="struts-default">
+		<interceptors>
+			<interceptor name="privilegeInterceptor" class="cn.zilime.web.interceptor.PrivilegeInterceptor"></interceptor>
+			
+			<interceptor-stack name="myStack">
+				<interceptor-ref name="privilegeInterceptor">
+					<param name="excludeMethods">login,regist</param>
+				</interceptor-ref>
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+			</interceptor-stack>
+	
+		</interceptors>
 		
+		
+		
+		
+		<default-interceptor-ref name="myStack"></default-interceptor-ref>
+		
+	<global-results>
+	<result name="toLogin" type="redirect">/login.jsp</result>
+	</global-results>
 	<global-exception-mappings>
 	<exception-mapping result="error" exception="java.lang.RuntimeException"></exception-mapping>
 	</global-exception-mappings>
@@ -35,7 +55,7 @@
 			</result>
 	</action>
 	
-	<action name="LinkManAction_*" class="linkManAction" method="{1}">
+		<action name="LinkManAction_*" class="linkManAction" method="{1}">
 			<result name="error" >/success.jsp</result>
 			<result name="list" >/jsp/linkman/list.jsp</result>
 			
@@ -43,6 +63,16 @@
 			<result name="tolist" type="redirectAction">
 			<param name="namespace">/</param>
 			<param name="actionName">LinkManAction_list</param>
+			</result>			
+		</action>
+		<action name="SaleVisitAction_*" class="saleVisitAction" method="{1}">
+			<result name="error" >/success.jsp</result>
+			<result name="list" >/jsp/salevisit/list.jsp</result>
+			
+			<result name="edit">/jsp/salevisit/add.jsp</result>
+			<result name="tolist" type="redirectAction">
+			<param name="namespace">/</param>
+			<param name="actionName">SaleVisitAction_list</param>
 			</result>			
 		</action>
 	

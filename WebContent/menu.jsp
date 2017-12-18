@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
 <HTML xmlns="http://www.w3.org/1999/xhtml">
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <HEAD id=Head1>
 <TITLE>导航</TITLE>
 <META http-equiv=Content-Type content="text/html; charset=utf-8">
@@ -180,11 +181,11 @@ A.active {
 											cellPadding=2 width=155 align=center border=0>
 											<TBODY>
 												<TR>
-													<TD class=menuSmall><A class=style2 href="#"
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/jsp/salevisit/add.jsp"
 														target=main>－新增客户拜访</A></TD>
 												</TR>
 												<TR>
-													<TD class=menuSmall><A class=style2 href="#"
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/SaleVisitAction_list"
 														target=main>－客户拜访列表</A></TD>
 												</TR>
 												
@@ -291,5 +292,6 @@ A.active {
 			</TBODY>
 		</TABLE>
 	</FORM>
+	<s:debug></s:debug>
 </BODY>
 </HTML>

@@ -90,36 +90,44 @@
 		scope="prototype">
 		<property name="baseDictService" ref="baseDictService"></property>
 	</bean>
-<bean name="linkManAction" class="cn.zilime.web.action.LinkManAction"
+	<bean name="linkManAction" class="cn.zilime.web.action.LinkManAction"
 		scope="prototype">
 		<property name="linkManService" ref="linkManService"></property>
+	</bean>
+	<bean name="saleVisitAction" class="cn.zilime.web.action.SaleVisitAction"
+		scope="prototype">
+		<property name="saleVisitService" ref="salevisitService"></property>
 	</bean>
 <!-- service配置 -->
 	<bean name="userService" class="cn.zilime.service.impl.UserServiceImpl">
 		<property name="ud" ref="userDao"></property>
 	</bean>
-<bean name="customerService" class="cn.zilime.service.impl.CustomerServiceImpl">
+	<bean name="customerService" class="cn.zilime.service.impl.CustomerServiceImpl">
 		<property name="cd" ref="customerDao"></property>
 	</bean>
-<bean name="baseDictService" class="cn.zilime.service.impl.BaseDictServiceImpl">
+	<bean name="baseDictService" class="cn.zilime.service.impl.BaseDictServiceImpl">
 		<property name="bdd" ref="baseDictDao"></property>
 	</bean>
-<bean name="linkManService" class="cn.zilime.service.impl.linkManServiceImpl">
+	<bean name="linkManService" class="cn.zilime.service.impl.linkManServiceImpl">
 	<property name="lmd" ref="linkManDao"></property>
 	</bean>
-
+	<bean name="salevisitService" class="cn.zilime.service.impl.SaleVisitServiceImpl">
+	<property name="svd" ref="salevisitDao"></property>
+	</bean>
 <!-- dao配置 -->
 	<bean name="userDao" class="cn.zilime.dao.impl.UserDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-<bean name="customerDao" class="cn.zilime.dao.impl.CustomerDaoImpl">
+	<bean name="customerDao" class="cn.zilime.dao.impl.CustomerDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-<bean name="baseDictDao" class="cn.zilime.dao.impl.BaseDictDaoImpl">
+	<bean name="baseDictDao" class="cn.zilime.dao.impl.BaseDictDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-<bean name="linkManDao" class="cn.zilime.dao.impl.LinkManDaoImpl">
+	<bean name="linkManDao" class="cn.zilime.dao.impl.LinkManDaoImpl">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-
+	<bean name="salevisitDao" class="cn.zilime.dao.impl.SaleVisitDaoImpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 </beans>
